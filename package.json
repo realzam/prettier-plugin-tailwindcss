@@ -28,7 +28,8 @@
     "prepublishOnly": "pnpm run build && node scripts/copy-licenses.js",
     "format": "prettier \"src/**/*.js\" \"scripts/**/*.js\" \"tests/test.js\" --write --print-width 100 --single-quote --no-semi --plugin-search-dir ./tests",
     "release-channel": "node ./scripts/release-channel.js",
-    "release-notes": "node ./scripts/release-notes.js"
+    "release-notes": "node ./scripts/release-notes.js",
+    "prepare": "pnpm build"
   },
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.1.0",
