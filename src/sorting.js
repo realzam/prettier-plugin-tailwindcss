@@ -2,6 +2,10 @@ export function bigSign(bigIntValue) {
   return (bigIntValue > 0n) - (bigIntValue < 0n)
 }
 
+function removeExtraSpaces(str = '') {
+  return str.replace(/\u0020+/g, ' ').trim()
+}
+
 function prefixCandidate(context, selector) {
   let prefix = context.tailwindConfig.prefix
   return typeof prefix === 'function' ? prefix(selector) : prefix + selector
@@ -78,7 +82,7 @@ export function sortClasses(
     result += `${classes[i]}${whitespace[i] ?? ''}`
   }
 
-  return prefix + result + suffix
+  return removeExtraSpaces(prefix + result + suffix)
 }
 
 export function sortClassList(classList, { env }) {
